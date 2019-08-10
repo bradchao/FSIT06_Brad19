@@ -4,8 +4,11 @@ package tw.org.iii.appps.brad19;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import android.os.Handler;
+import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +26,10 @@ public class F2 extends Fragment {
     private TextView tv;
     private Timer timer;
     private int iCounter;
+    private UIHandler handler;
 
     public F2(){
+        handler = new UIHandler();
         timer = new Timer();
         timer.schedule(new MyTask(), 0, 1000);
     }
@@ -32,10 +37,10 @@ public class F2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        mainView = inflater.inflate(R.layout.fragment_f2, container, false);
-        tv = mainView.findViewById(R.id.f2_tv);
-
+        if (mainView == null) {
+            mainView = inflater.inflate(R.layout.fragment_f2, container, false);
+            tv = mainView.findViewById(R.id.f2_tv);
+        }
         return mainView;
     }
 
@@ -44,7 +49,16 @@ public class F2 extends Fragment {
         public void run() {
             if (tv !=null){
                 iCounter++;
+                handler.sendEmptyMessage(0);
             }
+        }
+    }
+
+    private class UIHandler extends Handler {
+        @Override
+        public void handleMessage(@NonNull Message msg) {
+            super.handleMessage(msg);
+            tv.setText("" + iCounter);
         }
     }
 
