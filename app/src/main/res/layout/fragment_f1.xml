@@ -18,11 +18,17 @@
         android:layout_height="1dp"
         android:background="#000"
         />
+    <TextView
+        android:id="@+id/f1_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        />
     <Button
+        android:id="@+id/f1_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="F1Btn"
-        android:onClick="f1btnClick"
         />
 
 </LinearLayout>
