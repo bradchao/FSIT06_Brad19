@@ -10,6 +10,7 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
     private FragmentManager fmgr;
     private F1 f1;
+    private F2 f2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         fmgr = getSupportFragmentManager();
         f1 = new F1();
+        f2 = new F2();
 
         FragmentTransaction transaction = fmgr.beginTransaction();
         transaction.add(R.id.container, f1);
@@ -25,10 +27,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void test1(View view) {
-
+        FragmentTransaction transaction = fmgr.beginTransaction();
+        transaction.replace(R.id.container, f1);
+        transaction.commit();
     }
 
     public void test2(View view) {
+        FragmentTransaction transaction = fmgr.beginTransaction();
+        transaction.replace(R.id.container, f2);
+        transaction.commit();
     }
     public void test3(View view) {
     }
