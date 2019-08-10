@@ -30,5 +30,17 @@
         android:layout_height="wrap_content"
         android:text="F1Btn"
         />
+    <Button
+        android:id="@+id/f1_btn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="F1Btn2"
+        />
+    <Button
+        android:id="@+id/f1_btn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="F1Btn3"
+        />
 
 </LinearLayout>
