@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     private FragmentManager fmgr;
@@ -14,11 +15,14 @@ public class MainActivity extends AppCompatActivity {
     private F2 f2;
     private F3 f3;
     private F4 f4;
+    private TextView title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        title = findViewById(R.id.main_title);
 
         fmgr = getSupportFragmentManager();
         f1 = new F1();
@@ -29,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
         FragmentTransaction transaction = fmgr.beginTransaction();
         transaction.add(R.id.container, f1);
         transaction.commit();
+    }
+
+    public void setMainTitle(String titleString){
+        title.setText(titleString);
+    }
+    public F2 getF2(){
+        return f2;
     }
 
     public void test1(View view) {

@@ -23,7 +23,7 @@ import java.util.TimerTask;
  */
 public class F2 extends Fragment {
     private View mainView;
-    private TextView tv;
+    private TextView tv, title;
     private Timer timer;
     private int iCounter;
     private UIHandler handler;
@@ -40,10 +40,16 @@ public class F2 extends Fragment {
         if (mainView == null) {
             mainView = inflater.inflate(R.layout.fragment_f2, container, false);
             tv = mainView.findViewById(R.id.f2_tv);
+            title = mainView.findViewById(R.id.f2_title);
         }
         return mainView;
     }
 
+    public void setF2Title(String titleString){
+        if (title != null) {
+            title.setText(titleString);
+        }
+    }
     private class MyTask extends TimerTask {
         @Override
         public void run() {
